@@ -1,0 +1,211 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+
+  transition: opacity 250ms $animation;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.overlay.is-hidden .modal {
+  transform: scale(0.9);
+}
+
+.modal {
+  position: relative;
+  max-width: 450px;
+  width: 95%;
+
+  background-color: $white;
+  box-shadow: $modal-shadow;
+  border-radius: 4px;
+
+  transform: scale(1);
+
+  transition: transform 250ms $animation;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition: fill 250ms $animation;
+
+  &:hover {
+    fill: $blue;
+  }
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: $black;
+}
+
+.modal-form .inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form .form-input {
+  padding: 12px 42px;
+  margin-bottom: 28px;
+  width: 100%;
+
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  outline: none;
+
+  transition: border-color 250ms $animation;
+
+  &:focus {
+    border-color: $blue;
+  }
+
+  &:focus ~ .icon,
+  &:not(:placeholder-shown) ~ .icon {
+    fill: $blue;
+  }
+
+  &:focus + .form-label,
+  &:not(:placeholder-shown) + .form-label {
+    transform: translateY(-38px);
+    color: $blue;
+    font-size: 14px;
+  }
+}
+
+.modal-form textarea {
+  height: 120px;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  outline: none;
+
+  resize: none;
+
+  transition: border-color 250ms $animation;
+
+  &:focus {
+    border-color: $blue;
+  }
+
+  &::placeholder {
+    font-family: $font-roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: $grey;
+  }
+}
+
+.modal-form .form-label {
+  position: absolute;
+  top: 25%;
+  left: 42px;
+  transform: translateY(-25%);
+
+  color: $grey;
+
+  transition: all 250ms $animation;
+}
+
+.modal-form .checkbox-label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: $grey;
+}
+
+.modal-form .button {
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-form .inputs {
+  margin-bottom: 20px;
+}
+
+.form-field {
+  position: relative;
+}
+
+.form-field .icon {
+  position: absolute;
+  top: 25%;
+  left: 14px;
+  transform: translateY(-25%);
+
+  transition: fill 250ms $animation;
+}
+
+.checkbox {
+  margin-bottom: 30px;
+}
+
+.checkbox input {
+  vertical-align: middle;
+  margin-right: 7px;
+
+  width: 16px;
+  height: 15px;
+}
+
+.checkbox-label a {
+  color: $blue;
+}
